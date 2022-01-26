@@ -1,34 +1,9 @@
 import appConfig from '../config.json';
 import { Box, Button, Text, TextField, Image } from '@skynexui/components';
+import React from 'react';
+import { useRouter } from 'next/router';
 
-function GlobalStyle() {
-    return (
-        <style global jsx>{`
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-          list-style: none;
-        }
-        body {
-          font-family: 'Open Sans', sans-serif;
-        }
-        /* App fit Height */ 
-        html, body, #__next {
-          min-height: 100vh;
-          display: flex;
-          flex: 1;
-        }
-        #__next {
-          flex: 1;
-        }
-        #__next > * {
-          flex: 1;
-        }
-        /* ./App fit Height */ 
-      `}</style>
-    );
-}
+
 
 function Titulo(props) {
     console.log(props.children);
@@ -59,11 +34,12 @@ function HomePage() {
 export default HomePage */
 
 export default function PaginaInicial() {
-    const username = 'victoraragao67';
+/*     const username = 'victoraragao67'; */
+    const [username, setUsername] = React.useState('victoraragao67');
+    const roteamento = useRouter();
 
     return (
         <>
-            <GlobalStyle />
             <Box
                 styleSheet={{
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -90,6 +66,11 @@ export default function PaginaInicial() {
                     {/* Formulário */}
                     <Box
                         as="form"
+                        onSubmit={function (infosDoEvento){
+                            infosDoEvento.preventDefault();
+                            console.log('alguem submeteu o log');
+                            roteamento.push('/chat');
+                        }}
                         styleSheet={{
                             display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
                             width: { xs: '100%', sm: '50%' }, textAlign: 'center', marginBottom: '32px',
@@ -101,6 +82,14 @@ export default function PaginaInicial() {
                         </Text>
 }
                         <TextField
+                            value={username}
+                            onChange={function (event) {
+                                console.log('usuário digitou', event.target.value);
+                                //onde ta o valor?
+                                const valor = event.target.value;
+                                // Trocar o valor da variavel - React e avisa quem precisa
+                                setUsername(valor);
+                            }}
                             fullWidth
                             textFieldColors={{
                                 neutral: {

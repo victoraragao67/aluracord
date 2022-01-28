@@ -89,6 +89,7 @@ export default function PaginaInicial() {
                             }}
                         /> */}
                         <TextField
+                            placeholder='Insira aqui seu usuário GitHub'
                             value={username}
                             onChange={function (event) {
                                 console.log('usuario digitou', event.target.value);

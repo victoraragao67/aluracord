@@ -91,7 +91,7 @@ export default function ChatPage() {
                     height: '100%',
                     maxWidth: '95%',
                     maxHeight: '95vh',
-                    padding: '32px',
+                    padding: '24px',
                 }}
             >
                 <Header />
@@ -104,7 +104,7 @@ export default function ChatPage() {
                         backgroundColor: appConfig.theme.colors.neutrals[600],
                         flexDirection: 'column',
                         borderRadius: '5px',
-                        padding: '16px',
+                        padding: '24px',
                     }}
                 >
                     <MessageList mensagens={listaDeMensagens} />
@@ -140,10 +140,10 @@ export default function ChatPage() {
                                 width: '100%',
                                 border: '0',
                                 resize: 'none',
-                                borderRadius: '5px',
+                                borderRadius: '8px',
                                 padding: '6px 8px',
                                 backgroundColor: appConfig.theme.colors.neutrals[800],
-                                marginRight: '12px',
+                                marginRight: '8px',
                                 color: appConfig.theme.colors.neutrals[200],
                             }}
                         />
